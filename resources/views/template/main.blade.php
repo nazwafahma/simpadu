@@ -87,20 +87,16 @@
           <!--begin::User Menu Dropdown-->
           <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-              <img
-                src=""
-                class="user-image rounded-circle shadow"
-                alt="User Image" />
+              <img src="{{ asset('assets/img/' . $data['foto']) }}"
+                class="user-image rounded-circle shadow" alt="User Image" />
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
               <!--begin::User Image-->
               <li class="user-header text-bg-primary">
-                <img
-                  src=""
-                  class="rounded-circle shadow"
+                <img src="{{ asset('assets/img/' . $data['foto']) }}" class="rounded-circle shadow"
                   alt="User Image" />
                 <p>
-                  
+                  {{ $data['nama'] }}
                 </p>
               </li>
               <!--end::User Image-->
