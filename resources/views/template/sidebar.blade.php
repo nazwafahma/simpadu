@@ -6,7 +6,7 @@
     <a href="./index.html" class="brand-link">
       <!--begin::Brand Image-->
       <img
-        src="../assets/img/LogoPoliban.png"
+        src="{{ asset(path: 'assets/img/LogoPoliban.png') }}"
         alt="AdminLTE Logo"
         class="brand-image opacity-75 shadow" />
       <!--end::Brand Image-->

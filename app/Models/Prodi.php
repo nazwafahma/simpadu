@@ -9,4 +9,12 @@ class Prodi extends Model
 {
     //
     protected $table = 'prodi';
+    protected $primaryKey = 'id';
+    protected $keyType = 'string';
+
+    protected $fillable = [
+        'nama',
+        'kaprodi',
+        'jurusan',
+    ];
 }

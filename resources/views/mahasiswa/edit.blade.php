@@ -118,11 +118,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="foto">Upload Foto</label>
-                                    <input type="file" class="form-control" id="foto" name="foto" />
-                                </div>
+                                    <input type="file" class="form-control @error('file') is-invalid @enderror" id="foto" name="foto" />
+                                    @error('file')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                             </div>
+                                    @enderror
                             </div>
                             <div class="card-footer">
-                                <a href="index.php" class="btn btn-warning">Kembali</a>
+                                <a href="{{ url (path: 'mahasiswa') }}" class="btn btn-warning">Kembali</a>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </form>

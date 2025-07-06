@@ -39,7 +39,7 @@ class MahasiswaController extends Controller
     {
         $validateData = $request->validate(
             [
-                'nim' => 'required|unique:mahasiswa|max:10]',
+                'nim' => 'required|unique:mahasiswa|max:10',
                 'password' => 'required',
                 'nama' => 'required|max:100',
                 'tanggal_lahir' => 'required',
@@ -116,12 +116,16 @@ class MahasiswaController extends Controller
             if ($mahasiswa->foto) {
                 Storage::delete($mahasiswa->foto);
             }
+            $validateData['foto'] = $request->file('foto')->store('images');
+        } else {
+            // Jika tidak upload foto baru, gunakan foto lama
+            $validateData['foto'] = $mahasiswa->foto;
         }
-        if ($request->only(['password'])) {
+        if ($request->filled('password')) {
             $validateData['password'] = Hash::make($request->password);
         }
         $data = array_merge($validateData, $request->only(['id_prodi']));
-        Mahasiswa::WHERE('nim', $id)->update($data);
+        Mahasiswa::where('nim', $id)->update($data);
         return redirect('/mahasiswa');
     }
 
